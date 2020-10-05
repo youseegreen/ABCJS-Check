@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>abcjs: Basic Demo</title>
+    <link rel="stylesheet" type="text/css" href="./abcjs/font-awesome_4.7.0/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../abcjs/js/abcjs-midi.css">
+    <script src="./abcjs/js/abcjs-midi_5.12.0-min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var abc = "X:1\n" +
+            "T: 亀上的竜宮生活\n" +
+            "M: 4/4\n" +
+            "L: 1/8\n" +
+            "Q: 1/4=130\n" +
+            "K: G\n" +
+            "V: T1\n" +
+            "zE|edBd BABd|e2 de gaed|ee1/2d1/2 Bd ABgf|e2 de gab[ad']|\n" +
+            "[be']2 [ad']b abfd|eega babd'|bage ga1/2g1/2 eg|[cb]a g2 g2 zd|\n" +
+            "|[K: _B_E] !arpeggio![dgbd']c'bc' !arpeggio![cfa]cfa|g2 fg [fb]c'gf|[dg]g1/2f1/2 df cd[bd'][ac']|[gb]2 fgbc'd'[c'f']|\n" +
+            "[d'g']2 [c'f']d' c'[bd'][ac']f|ggbc' [ad']c'd'f'|[gd']c'bg [fb]c'1/2b1/2 gb|!arpeggio![dgbd']c' b2 b2 z f|\n" +
+            "!arpeggio![fac']d'c'a babc'|!arpeggio![dgbd']4|" +
+            "[V: B1][K: G bass]%%MIDI program 52\n" +
+            "zE,,|E,D,B,,D, B,,A,,B,,D,|E,3/2G,1/2 B,G, D,F,B,F,|z8|z8|\n" +
+            "z8|z8|z8|z8|\n" +
+            "|[K: _B_E]z8|z8|z8|z8|\n" +
+            "z8|z8|z8|z8|\n" +
+            "z8|z4|";
+
+
+
+        function load() {
+            ABCJS.renderAbc("paper", abc);
+            ABCJS.renderMidi("midi", abc);
+            ABCJS.renderMidi("midi-download", abc, { generateDownload: true, generateInline: false });
+        }
+    </script>
+</head>
+
+<body onload="load()">
+
+    <div id="paper"></div>
+    <div id="midi"></div>
+    <div id="midi-download"></div>
+</body>

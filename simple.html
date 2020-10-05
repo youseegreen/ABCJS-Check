@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>abcjs: Basic Demo</title>
+    <link rel="stylesheet" type="text/css" href="./abcjs/font-awesome_4.7.0/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../abcjs/js/abcjs-midi.css">
+    <script src="./abcjs/js/abcjs-midi_5.12.0-min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var abc =
+            "X:1\n" +
+            "T:genso\n" +
+            "M:6/8\n" +
+            "L:1/8\n" +
+            "K:D\n" +
+            "[^G,16G16] | [C/C,/]((3^GCE)((3CGC)((3GCE)((3CGC) |((3^GCE)((3CGC)((3GCE)C/G/ | C/^G0G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c0G/d/C/c/ [=c/E/]^c/C/e/G/g/ |\n" +
+            "C/^G0G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c/G/d/C/c/ [=c/E/]^c/C/e/G0g/ | ^D/A0A/c/C/d/ [f/F/]a/C/((3c'A0d') [b'/F/]a'/C/^g'/D/f'/ [e'/A/]d'0D/f'/C0c'/ | [=c'/^G,/]^d'/D/a/F/g/ [f/C/]a/F/e/D/d/ [f/G,/]^c0D/=c/F/d/ [A/C/]G/F/((3BD0A) | C/^G/G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c0G/d/C/c/ [=c/E/]^c/C/e/G/g/ |\n" +
+            "C/^G/G/^A/A/G/ [=G/E/]^G/A/c/G/e/ [^d/E/]c0G/d/A/c/ [=c/^C/]c/A/e/G/g/ | [^d/D/]e/^G/d/B/=d/ [^d/D/]b/B/^a/G/g/ [=g/D/]e'/A/d'/C/c'/ [b/G/]a0C/^g/A0=g/ | [^a/^G,/]g/^D/b/G/=d/ [e/B/]^d/G/((3gD0A) [c/G,/]B/D/d/G/=G/ [A/B/]^G/G/=G/D/^G/ | [^G/A,/]g0C/=c/F/^c/ [F/A/]f/F/=c/^C/c/ [^E/A,/]e0C/=c/F/^c/ [F/A/]f0F/((3=c^C0c) |\n" +
+            "[C/B,/]c/F/F/A/A/ [^D/B/]d0A/F/F/A/ [E/E,/]e0B,/^G/E/B/ [G/G/]g0E/B/B,/e/ | [^G/A,/]g0C/=c/F/^c/ [F/A/]f0F/=c/^C/c/ [^E/A,/]e0C/=c/F/^c/ [F/A/]f0F/=c/^C/c/ | [^E/B,/]e0^D/((3BA0d) [F/B/]f/A/B/D/d/ [A/=E,/]a0B,/((3BE0e) [^G/G/]g0E/B/B,/e/ | [^G/A,/]g0C/=c/F/^c/ [F/A/]f0F/=c/^C/c/ [^E/A,/]e0C/=c/F/^c/ [F/A/]f0F/=c/^C/c/ |\n" +
+            "[C/B,/]c0F/((3FA0A) [^D/B/]d0A/F/F/A/ [E/E,/]e0B,/((3^GE0B) [G/G/]g0E/B/B,/e/ | [^G/A,/]g0C/=c/F/^c/ [F/A/]f/F/=c/^C/c/ [^d/A,/]d'0D/f/F/a/ [c/A/]c'/F/f/D0a/ | [c/^G,/]c'0^D/d/F/f/ [=c/C/]c'0F/d/D/f/ [c/G,/]c'0D/d/F/f/ [c/C/]c'0F/d/D/f/ | [=c/A,/]c'0^D/d/F/f/ [B/B/]b0F/d/D/f/ [B/^A,/]b0D/d/F/f/ [A/A/]a0F/d/D/f/ |\n" +
+            "[^A/=C,/]a0^D/d/F/f/ [=A/A/]a/F/d/D/f/ [A/C,/]a/D/d/F/f/ [A/A/]a/F/d/D/f/ | [=c/A,/]c'0^D/d/F/f/ [B/B/]b0F/d/D/f/ [B/^A,/]b0D/d/F/f/ [A/A/]a0F/((3dD0f) | [^A/B,/]a0^D/d/F/f/ [=A/A/]a0F/d/D/f/ [A/=C,/]a0D/((3dF0f) [^G/G/]g/F/d/D0f/ | C/^G0G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c0G/d/C/c/ [=c/E/]^c/C/e/G/g/ |\n" +
+            "C/^G0G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c/G/d/C/c/ [=c/E/]^c/C/e/G0g/ | ^D/A0A/c/C/d/ [f/F/]a/C/((3c'A0d') [b'/F/]a'/C/^g'/D/f'/ [e'/A/]d'0D/f'/C0c'/ | [=c'/^G,/]^d'/D/a/F/g/ [f/C/]a/F/e/D/d/ [f/G,/]^c0D/=c/F/d/ [A/C/]G/F/((3BD0A) | C/^G/G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c0G/d/C/c/ [=c/E/]^c/C/e/G/g/ |\n" +
+            "[e/F/]^d/C/e/D/d/ [=d/A/]^d/D/f/C/a/ [f/^G/]^e/C/f/E/e/ [=e/B/]^e0E/g/C0c'/ | A/c/C/d/F/c/ [=c/A/]^c/F/((3fC0a) [f/^G/]^e/C/f/E/e/ [=e/B/]^e/E/g/C/c'/ | [^g/A/]f0C/g/F/f/ [^e/A/]f/F/a/C/c'/ [a/=C,/]g0F/a/G/g/ [=g/^D/]^g0G/((3^c'F0d') | [^g/C/]a/G/g/C/=g/ [^g/E/]e'0C/^d'/G/=d'/ [c'/^D/]=c'0G/b/C/^a/ [=a/F/]g0C/=g/^G/f/ |\n" +
+            "[e/E/]f0^G/e/C/^d/ [e/E/]e'0C/d'/G/=d'/ [c'/F/]=c'0^C/b/^D/^a/ [=a/A/]g0D/=g/C/f/ | [^gGCEG]g'/=g'/ f'/^e'/=e'/^d'/ [=d'/G/C/E/A/]c'/=c'/b/ ^a/=a/^g/=g/ | f/^e/=e/^d/ =d/c/=c/B/ ^A/=A/^G/=G/ F/E/^D/^C/ | [^G2G,,2G,2] [a'/E/e/]g'/e''/e'/ [f'/C/c/]e'/c''/c'/ [^d'/G/G/]c'/g'/g/ |\n" +
+            "[a/E/E/]^g/e'/e/ [f/C/C/]e/c'/c/ [^d/G,/G/]c/g/G/ [A/E/E,/]G/e/E/ | [F/C,/C/]E/c/C/ [^D/^G,,/G,/]C/G/G/ [D/G,/G,,/]C/G/G/ [D/A,/A,,/]C/A/A/ | [^D/^G,/G,,/]C/G/G/ [D/=G,/G,,/]C/G/G/ ^G,,0 [D/G,/]C/G/G/ D/=C/G/G/ | ((3C,^G,C) ((3^EGC) ((3ECG) ((3ECG,) |\n" +
+            "((3C,^G,C) ((3^EGC) ((3ECG) ((3ECG,) | C,0 ^G/((3G=C^D)C/G/^A/ c0< ^C0 A/G/((3G=CF0) ((3^c=Cd2)G/ | C0 ((3^e^GC) ((3ECG) C0 g/((3GEG)((3EGF) | f/((3^D^G^e) ((3ECG) [D/d/]((3=CG^C) e/G/E/c/ |\n" +
+            "^G,0 G/((3^DG=C)G/D/ F,0 ^A/((3FA^C)((3AFA,) |((3^E^AD)A/E/B/c0 B0 A,/A/AD/ [^d/^G/]=D/eA/ | [f0^D0]F/^A/ [^E0e0]E/=A/ F0 d/((3D^A^G) e/F/=C/ | [C0c0]((3^GC^E) =c/^C/c/^d/G/c/ D0 e/((3=GCD)C/d/G/ |\n" +
+            "^G,0 ^d/((3DG=C)((3GDG,)((3DF^A)F/D/ | ^G,0 G/((3^DG=C)G/D/ ^A0< G,0 c0 A/G/G/C/ ^c F/=C0d/G/ | [C0^e0]((3^GCE)C/G/ C0 g/((3GEG)((3EGf) | ((3F^D^G) [^e/E/]((3CGd) D/=C/e/[G/d/]^c0 d0 C/e/G/E/ c/ |\n" +
+            "[^G0G,0]((3^DG=C)G/D/ F,0 ^A/((3FA^C)((3AFA,) |((3^E^AD)A/E/B/ c0< A,0 B/A/AD/ [^G/^d/]=D/e/A/ | ^D0 f/F/^A/ ^E0 e/E/=A/ [F0d0]D/^A/ e0 ((3^GF=C) | C0 c/^G/C/ ^E/=G/C/^G/^A/G0G/ C0 e/((3G=CF)C/^dG/ |\n" +
+            "[C0^d0]((3^G=CF)C/G/ [^C0c0]((3GC^E)C/g/G | ^G,0G/((3^DG=C)G/D/ ^A0< [G,0c0] A/D/=G/((3=A^C0^A)G/D/=c/ | [^G,/G/]^D/G/ =C0 c'/G/D/ ^C/^a/G/g0C/e/ c0 E/A/C/G/ | ^g0<^D,0D/((3DG=C)G/D/ [D,0c0] ^A/D/=G/((3=A^C0^A)G/D/((3d^G,0G) |\n" +
+            "((3^D^G=C)G/D/ F,0 ((3^AFA) ^C/ c/A/=c/F0A/ | ^G,0 G/((3G=C^D)C/G/^A/ c0 D/ A/G0G/C/ ^c/ F/=C0d/G/ ^e0 | ((3C^GC) ((3^ECG) C0 g/((3GEG)E/G/ | [F0f0]^D/^G/ ^E0 e/C/G/ D/=C/e/[d0d0]G/^c/d/ [e/C/]G/c/E |\n" +
+            "^G,0G/((3^DG=C)G/D/ [^A0F,0]((3FA^C)((3AFA,) |((3^E^AD)A/E0B/c0 B A,/A0A/D/ ^d ^G/=D0e/A/ f0 | ((3^DF^A) [^e0E0]E/=A/ F0 ((3dD^A) ^G0 e/F/=C/ | C0 c/^G/C/ [^E/=G/]^G/C/^A/G/G/ C0 e/((3G=CF)C/^dG/ |\n" +
+            "[^d/C/C/]((3^G=CF)C/G/ ^C0 c/((3GC^E)C0g/G/ | ^G,0 G/((3^DG=C)G/D/^A/ c0< G,0 A/D/=G/=A/ [^A/^C/]G/D/=c/ | [^G/G,/]^D/G/ =C0 c'/((3GD^C)[G/^a/]g0C/e/c/ E0 AC/G/ g/ | ^D,0 D/((3D^G=C)G/D/ c0 [^A/D,/]D/=G/=A/ [^A/^C/]G/D/((3d^G,0G) |\n" +
+            "((3^D^G=C)G/D/ F,0 ^A/((3FA^c) C/[=c/A/][A/F/] | ^G,0 G/((3^DG=C)G/D/ ^A0 G,/ c0A/G/GC/ ^c F/=C/((3dG^e0) | ((3C^GC) ((3^ECG) C0 g/((3GEG)E/G/ | [F0f0]^D/^G/ [^E0e0]((3CGd) D/=C/e/d0[^c/G/]d/ C/ e/G/c0E/ |\n" +
+            "^G,0 G/((3^DG=C)G/D/ [^A0F,0]F/[A/A/] ((3^CAF) | ((3^A,^EA) D/A/E/B/ c0 A,/ B/A/AD/ ^d0 ^G/=D/e/A/ | ^D/ ((3fF^A) ^E/ ((3eE=A) [F/d/]((3D^A^G) e/F/=C | [C0c0]^G/C/ ^E/=G/C/^G/G0^A0 G/ C0 e/((3G=CF)C0^d/G/ |\n" +
+            "C0 ^d/((3^G=CF)((3CG^C)((3G=CF)C/G/ | C/^G0G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c0G/d/C/c/ [=c/E/]^c/C/e/G/g/ | C/^G0G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c/G/d/C/c/ [=c/E/]^c/C/e/G0g/ | ^D/A0A/c/C/d/ [f/F/]a/C/((3c'A0d') [b'/F/]a'/C/^g'/D/f'/ [e'/A/]d'0D/f'/C0c'/ |\n" +
+            "[=c'/^G,/]^d'/D/a/F/g/ [f/C/]a/F/e/D/d/ [f/G,/]^c0D/=c/F/d/ [A/C/]G/F/((3BD0A) | C/^G/G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c0G/d/C/c/ [=c/E/]^c/C/e/G/g/ | C/^G/G/^A/A/G/ [=G/E/]^G/A/c/G/e/ [^d/E/]c0G/d/A/c/ [=c/^C/]c/A/e/G/g/ | [^d/D/]e/^G/d/B/=d/ [^d/D/]b/B/^a/G/g/ [=g/D/]e'/A/d'/C/c'/ [b/G/]a0C/^g/A0=g/ |\n" +
+            "[^a/^G,/]g/^D/b/G/=d/ [e/B/]^d/G/((3gD0A) [c/G,/]B/D/d/G/=G/ [A/B/]^G/G/=G/D/^G/ | [^G/A,/]g0C/=c/F/^c/ [F/A/]f/F/=c/^C/c/ [^E/A,/]e0C/=c/F/^c/ [F/A/]f0F/((3=c^C0c) | [C/B,/]c/F/F/A/A/ [^D/B/]d0A/F/F/A/ [E/E,/]e0B,/^G/E/B/ [G/G/]g0E/B/B,/e/ | [^G/A,/]g0C/=c/F/^c/ [F/A/]f0F/=c/^C/c/ [^E/A,/]e0C/=c/F/^c/ [F/A/]f0F/=c/^C/c/ |\n" +
+            "[^E/B,/]e0^D/((3BA0d) [F/B/]f/A/B/D/d/ [A/=E,/]a0B,/((3BE0e) [^G/G/]g0E/B/B,/e/ | [^G/A,/]g0C/=c/F/^c/ [F/A/]f0F/=c/^C/c/ [^E/A,/]e0C/=c/F/^c/ [F/A/]f0F/=c/^C/c/ | [C/B,/]c0F/((3FA0A) [^D/B/]d0A/F/F/A/ [E/E,/]e0B,/((3^GE0B) [G/G/]g0E/B/B,/e/ | [^G/A,/]g0C/=c/F/^c/ [F/A/]f/F/=c/^C/c/ [^d/A,/]d'0D/f/F/a/ [c/A/]c'/F/f/D0a/ |\n" +
+            "[c/^G,/]c'0^D/d/F/f/ [=c/C/]c'0F/d/D/f/ [c/G,/]c'0D/d/F/f/ [c/C/]c'0F/d/D/f/ | [=c/A,/]c'0^D/d/F/f/ [B/B/]b0F/d/D/f/ [B/^A,/]b0D/d/F/f/ [A/A/]a0F/d/D/f/ | [^A/=C,/]a0^D/d/F/f/ [=A/A/]a/F/d/D/f/ [A/C,/]a/D/d/F/f/ [A/A/]a/F/d/D/f/ | [=c/A,/]c'0^D/d/F/f/ [B/B/]b0F/d/D/f/ [B/^A,/]b0D/d/F/f/ [A/A/]a0F/((3dD0f) |\n" +
+            "[^A/B,/]a0^D/d/F/f/ [=A/A/]a0F/d/D/f/ [A/=C,/]a0D/((3dF0f) [^G/G/]g/F/d/D0f/ | C/^G0G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c0G/d/C/c/ [=c/E/]^c/C/e/G/g/ | C/^G0G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c/G/d/C/c/ [=c/E/]^c/C/e/G0g/ | ^D/A0A/c/C/d/ [f/F/]a/C/((3c'A0d') [b'/F/]a'/C/^g'/D/f'/ [e'/A/]d'0D/f'/C0c'/ |\n" +
+            "[=c'/^G,/]^d'/D/a/F/g/ [f/C/]a/F/e/D/d/ [f/G,/]^c0D/=c/F/d/ [A/C/]G/F/((3BD0A) | C/^G/G/A/C/G/ [=G/E/]^G/C/c/G/e/ [^d/E/]c0G/d/C/c/ [=c/E/]^c/C/e/G/g/ | [e/F/]^d/C/e/D/d/ [=d/A/]^d/D/f/C/a/ [f/^G/]^e/C/f/E/e/ [=e/B/]^e0E/g/C0c'/ | A/c/C/d/F/c/ [=c/A/]^c/F/((3fC0a) [f/^G/]^e/C/f/E/e/ [=e/B/]^e/E/g/C/c'/ |\n" +
+            "[^g/A/]f0C/g/F/f/ [^e/A/]f/F/a/C/c'/ [a/=C,/]g0F/a/G/g/ [=g/^D/]^g0G/((3^c'F0d') | [^g/C/]a/G/g/C/=g/ [^g/E/]e'0C/^d'/G/=d'/ [c'/^D/]=c'0G/b/C/^a/ [=a/F/]g0C/=g/^G/f/ | [e/E/]f0^G/e/C/^d/ [e/E/]e'0C/d'/G/=d'/ [c'/F/]=c'0^C/b/^D/^a/ [=a/A/]g0D/=g/C/f/ | [^gGCEG]g'/=g'/ f'/^e'/=e'/^d'/ [=d'/G/C/E/A/]c'/=c'/b/ ^a/=a/^g/=g/ |\n" +
+            "f/^e/=e/^d/ =d/c/=c/B/ ^A/=A/^G/=G/ F/E/^D/^C/ | [^G2G,,2G,2] [a'/E/e/]g'/e''/e'/ [f'/C/c/]e'/c''/c'/ [^d'/G/G/]c'/g'/g/ | [a/E/E/]^g/e'/e/ [f/C/C/]e/c'/c/ [^d/G,/G/]c/g/G/ [A/E/E,/]G/e/E/ | [F/C,/C/]E/c/C/ [^D/^G,,/G,/]C/G/G/ [D/G,/G,,/]C/G/G/ [D/A,/A,,/]C/A/A/ |\n" +
+            "[^D/^G,/G,,/]C/G/G/ [D/=G,/G,,/]C/G/G/ [D/^G,,/G,/]C/G/G/ D/=C/G/G/ | [^D/C,/]C/[^G/E/]G/ [A/C/]G/[e/G,/]E/ [A/C,/]G/[e/F/]E/ [A/=C,/]G/[d/G,/]D/ | [A/C,/]^G/[^d/E/]D/ [A/C/]G/[c/G,/]C/ [E/C,/]D/[G/F/]G/ [E/=C,/]D/[G/G,/]G/ | [^D/C,/]C/[^G/E/]G/ [A/C/]G/[e/G,/]E/ [A/C,/]G/[e/F/]E/ [A/=C,/]G/[d/G,/]D/ |\n" +
+            "[A/C,/]^G/[^d/E/]D/ [A/C/]G/[c/G,/]C/ [E/C,/]D/[G/F/]G/ [E/=C,/]D/[G/G,/]G/ | [^D/C,/]C/[^G/E/]G/ [A/C/]G/[e/G,/]E/ [F/C,/]E/[c/G/]C/ [A/C/]G/[e/G,/]E/ | [^D/C,/]C/[^G/E/]G/ [A/C/]G/[e/G,/]E/ [F/C,/]E/[c/G/]C/ [A/C/]G/[e/G,/]E/ | [F/C,/]E/[c/E/]C/ [A/C/]^G/[c/G,/]C/ [F/C,/]E/[c/E/]C/ [A/C/]G/[c/G,/]C/ |\n" +
+            "[F/C,/]E/[c/E/]C/ [A/C/]^G/[c/G,/]C/ [F/C,/]E/[c/E/]C/ [A/C/]G/[c/G,/]C/ | [^D/C,/]C/^G/G/ D/C/G/G/ D/C/G/G/ D/C/G/G/ | ^D/C/^G/G/ D/C/G/G/ D/C/G/G/ D/C/G/G/ | [^D/^G,/C,/]C/G/G/ D/C/G/G/ D/C/G/G/ D/C/G/G/ |\n" +
+            "[^D/^A,/]C/^G/G/ [D/G,/]C/G/G/ [D/C/]C/G/G/ [D/D/]C/G/G/ | [^D/^E/]C/^G/G/ D/C/G/G/ D/C/G/G/ D/C/G/G/ | [^D/^G/]C/G/G/ D/C/G/G/ D/C/G/G/ D/C/G/G/ | [^D/F/]C/^G/G/ D/C/G/G/ [D/^E/]C/G/G/ D/C/G/G/ |\n" +
+            "[^D/D/]C/^G/G/ D/C/G/G/ [D/^E/]C/G/G/ [D/C/]C/G/G/ | [^D/^G,/]C/G/^E/ D/C/G/E/ D/C/G/E/ D/C/G/E/ | [^E/^G,/G,,/]^D/G/E/ E/D/G/E/ E/D/G/E/ E/D/G/E |C,/^G,/F/G0=C/^D6 |\n" +
+            "C,/^G,<^EGC13/2 |\n" +
+
+
+            function load() {
+                ABCJS.renderAbc("paper", abc);
+                ABCJS.renderMidi("midi", abc);
+                ABCJS.renderMidi("midi-download", abc, { generateDownload: true, generateInline: false });
+            }
+    </script>
+</head>
+
+<body onload="load()">
+
+    <div id="paper"></div>
+    <div id="midi"></div>
+    <div id="midi-download"></div>
+</body>
